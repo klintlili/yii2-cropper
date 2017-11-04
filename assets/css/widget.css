@@ -1,0 +1,16 @@
+
+.admin_thumbnail {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.admin_thumbnail img {
+    position: relative;
+    max-width: 100%;
+}

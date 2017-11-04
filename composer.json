@@ -1,0 +1,21 @@
+{
+    "name": "stkevich/yii2-cropper",
+    "description": "YII2 Image Cropper",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"," cropper"],
+    "license": "BSD-4-Clause",
+    "authors": [
+        {
+            "name": "Stas Kevich",
+            "email": "st.kevich@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "stkevich\\cropper\\": ""
+        }
+    }
+}
