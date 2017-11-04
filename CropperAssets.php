@@ -10,7 +10,7 @@ use yii\web\AssetBundle;
  */
 class CropperAssets extends AssetBundle
 {
-    public $sourcePath = '@vendor/stkevich/cropper/assets';
+    public $sourcePath = '@vendor/stkevich/yii2-cropper/assets';
 
     public $css = [
         'css/imgareaselect-default.css',

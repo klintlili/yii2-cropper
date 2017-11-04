@@ -1,5 +1,5 @@
 <?php
-use common\widgets\cropper\CropperAssets;
+use \stkevich\cropper\CropperAssets;
 use \yii\helpers\Html;
 
 CropperAssets::register($this);
@@ -73,4 +73,3 @@ $this->registerJs("
             };
         }
       ");
-?>
