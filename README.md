@@ -1,7 +1,7 @@
 YII2 Image Cropper
 ==================
 YII2 Image Cropper
-
+More details http://odyniec.net/projects/imgareaselect/usage.html
 Installation
 ------------
 
@@ -28,6 +28,8 @@ Usage
 Once the extension is installed, simply use it in your code by:
 
 ```php
-
+use \stkevich\cropper\Cropper;
+...
+$form->field($modelName, 'fieldName')->widget(Cropper::className(), []);
 
 ```

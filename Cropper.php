@@ -1,8 +1,14 @@
 <?php
-//http://odyniec.net/projects/imgareaselect/usage.html
+/**
+ * Created by PhpStorm.
+ * User: st.kevich
+ * Date: 07.11.17
+ * Time: 11:59
+ */
 namespace stkevich\cropper;
 
 use Yii;
+use yii\helpers\Html;
 
 /**
  * Widget for cropping image to yii2.
@@ -77,48 +83,39 @@ class Cropper extends \yii\bootstrap\Widget
     public function init()
     {
         parent::init();
+
+        $this->options = array_merge($this->options, [
+            'aspectRatio' => $this->aspectRatio,
+            'autoHide' => $this->autoHide,
+            'maxHeight' => $this->maxHeight,
+            'maxWidth' => $this->maxWidth,
+            'minHeight' => $this->minHeight,
+            'minWidth' => $this->minWidth,
+            'resizable' => $this->resizable,
+        ]);
     }
 
     public function run()
     {
         $attribute = $this->attribute;
+        if (!$attribute) {
+            return false;
+        }
+
         return $this->render(
             'view',
             [
                 'model' => $this->model,
-                'source' => $this->model->$attribute,
-                'nameForm' => $this->getName($attribute),
-                'nameFormInfo' => $this->getNameInfo($attribute),
-                'imageId' => $this->getIdName($attribute, 'image'),
-                'formId' => $this->getIdName($attribute, 'form'),
-                'options' => [
-                    'aspectRatio' => $this->aspectRatio,
-                    'autoHide' => $this->autoHide,
-                    'maxHeight' => $this->maxHeight,
-                    'maxWidth' => $this->maxWidth,
-                    'minHeight' => $this->minHeight,
-                    'minWidth' => $this->minWidth,
-                    'resizable' => $this->resizable,
-                ]
+                'imageSrc' => isset($this->model->$attribute) ? $this->model->$attribute : '',
+                'formName' => Html::getInputName($this->model, $this->attribute),
+                'formNameInfo' => Html::getInputName($this->model, $this->attribute . 'Info'),
+                'imageId' => $this->getFieldId($attribute, 'image'),
+                'options' => $this->options,
             ]
         );
     }
 
-    private function getName($attribute, $prefix='', $suffix='')
-    {
-        $formName = $this->model->formName();
-        $name = $formName . $prefix . "[$attribute]" . $suffix;
-        return $name;
-    }
-
-    private function getNameInfo($attribute, $prefix='', $suffix='')
-    {
-        $formName = $this->model->formName();
-        $name = $formName . $prefix . "[$attribute"."Info]" . $suffix;
-        return $name;
-    }
-
-    private function getIdName($attribute, $prefix='', $suffix='')
+    private function getFieldId($attribute, $prefix='', $suffix='')
     {
         $formName = $this->model->formName();
         $idName = "$formName$prefix$attribute$suffix";

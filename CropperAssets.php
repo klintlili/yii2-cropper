@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: st.kevich
+ * Date: 07.11.17
+ * Time: 11:59
+ */
 namespace stkevich\cropper;
 
 use yii\web\AssetBundle;
