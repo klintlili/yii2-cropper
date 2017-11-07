@@ -1,7 +1,8 @@
 YII2 Image Cropper
 ==================
 YII2 Image Cropper
-More details http://odyniec.net/projects/imgareaselect/usage.html
+More details on http://odyniec.net/projects/imgareaselect/usage.html
+
 Installation
 ------------
 
